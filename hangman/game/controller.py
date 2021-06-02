@@ -1,5 +1,5 @@
 from flask import Response
-from hangman import logger,app
+from hangman import app
 from hangman.game.utility import word_result_parser
 import requests
 import json
@@ -10,10 +10,8 @@ def load_game_controller() -> Response:
         resp = requests.get(get_word_url)
         if resp.status_code != 200:
             raise Exception('Could not fetch word')
-        print(resp.json())
-        logger.info("Hello world")
         word = resp.json()[0].get('word', None)
-        print(word)
+        word = "Captured"
         if word is None:
             raise Exception('Could not fetch word')
     except Exception as e:

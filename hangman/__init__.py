@@ -1,7 +1,10 @@
 from flask import Flask
+from cryptography.fernet import Fernet
 
 app = Flask(__name__)
 app.config.from_pyfile('../environment.cfg')
+
+encrptor = Fernet(app.config['SECRET_KEY'])
 
 from hangman.logger import get_logger
 logger = get_logger()

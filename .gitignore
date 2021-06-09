@@ -1,5 +1,5 @@
 #App files
 
-error.log
+*.log
 __pycache__
 /artifacts
